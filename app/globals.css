@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 221 83% 53%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 221 83% 53%;
+    --chart-1: 221 83% 53%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 217 47% 11%;
+    --foreground: 213 40% 98%;
+    --card: 217 47% 11%;
+    --card-foreground: 213 40% 98%;
+    --popover: 217 47% 11%;
+    --popover-foreground: 213 40% 98%;
+    --primary: 213 91% 60%;
+    --primary-foreground: 213 40% 98%;
+    --secondary: 217 32% 17%;
+    --secondary-foreground: 213 40% 98%;
+    --muted: 217 32% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 217 32% 17%;
+    --accent-foreground: 213 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 213 40% 98%;
+    --border: 217 32% 17%;
+    --input: 217 32% 17%;
+    --ring: 213 76% 48%;
+    --chart-1: 213 70% 50%;
+    --chart-2: 213 60% 45%;
+    --chart-3: 213 50% 40%;
+    --chart-4: 213 40% 35%;
+    --chart-5: 213 30% 30%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight;
+  }
+}
+
+.bg-grid-pattern {
+  background-image: linear-gradient(to right, hsl(var(--foreground) / 0.1) 1px, transparent 1px),
+                    linear-gradient(to bottom, hsl(var(--foreground) / 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.mouse-gradient-overlay {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  mix-blend-mode: plus-lighter;
+  transition: background 0.1s ease-out;
+}
+
+/* Animation for the letter R */
+@keyframes roll-r {
+  0% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 1; }
+  10% { transform: translate(5px, -5px) rotate(10deg) scale(0.9); opacity: 0.8; }
+  20% { transform: translate(-5px, 5px) rotate(-10deg) scale(1.1); opacity: 1; }
+  30% { transform: translate(5px, 0px) rotate(5deg) scale(0.95); opacity: 0.9; }
+  40% { transform: translate(-5px, -5px) rotate(-5deg) scale(1.05); opacity: 1; }
+  50% { transform: translate(0px, 5px) rotate(10deg) scale(0.9); opacity: 0.8; }
+  60% { transform: translate(5px, -5px) rotate(-10deg) scale(1.1); opacity: 1; }
+  70% { transform: translate(-5px, 0px) rotate(5deg) scale(0.95); opacity: 0.9; }
+  80% { transform: translate(0px, -5px) rotate(-5deg) scale(1.05); opacity: 1; }
+  90% { transform: translate(5px, 5px) rotate(10deg) scale(0.9); opacity: 0.8; }
+  100% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 1; }
+}
+
+.animated-r {
+  display: inline-block; /* Needed for transform to work */
+  animation: roll-r 4s infinite linear;
+}
